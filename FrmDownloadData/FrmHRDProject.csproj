@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9D16685-F37D-44E5-9B82-4FC621FD43B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HRDProject</RootNamespace>
+    <AssemblyName>HRDProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HRDProject.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.BioBridgeSDKLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\AxInterop.BioBridgeSDKLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.BioBridgeSDKLib">
+      <HintPath>.\Interop.BioBridgeSDKLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Ofis">
+      <HintPath>.\Interop.Ofis.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>.\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsEncryption.cs" />
+    <Compile Include="Classes\clsFunction.cs" />
+    <Compile Include="Classes\clsGlobalFunction.cs" />
+    <Compile Include="Classes\clsInfoApp.cs" />
+    <Compile Include="Classes\clsPrivileges.cs" />
+    <Compile Include="Classes\clsVarProgram.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmData_Karyawan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmData_Karyawan.Designer.cs">
+      <DependentUpon>FrmData_Karyawan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmData_SettingAbsenSpesial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmData_SettingAbsenSpesial.Designer.cs">
+      <DependentUpon>FrmData_SettingAbsenSpesial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmData_SettingJamKerja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmData_SettingJamKerja.Designer.cs">
+      <DependentUpon>FrmData_SettingJamKerja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmData_SettingOffKerja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmData_SettingOffKerja.Designer.cs">
+      <DependentUpon>FrmData_SettingOffKerja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmData_SwitchOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmData_SwitchOff.Designer.cs">
+      <DependentUpon>FrmData_SwitchOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsPrintGaji.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrintGaji.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\dsRptJamAbsensi.cs">
+      <DependentUpon>dsRptJamAbsensi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsRptJamAbsensi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRptJamAbsensi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsRptJamAbsensi2.cs">
+      <DependentUpon>dsRptJamAbsensi2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsRptJamAbsensi2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRptJamAbsensi2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDownloadData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDownloadData.Designer.cs">
+      <DependentUpon>FrmDownloadData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRpt_Absensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRpt_Absensi.Designer.cs">
+      <DependentUpon>FrmRpt_Absensi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRpt_Gaji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRpt_Gaji.Designer.cs">
+      <DependentUpon>FrmRpt_Gaji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRpt_RekapAbsensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRpt_RekapAbsensi.Designer.cs">
+      <DependentUpon>FrmRpt_RekapAbsensi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRpt_RekapUM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRpt_RekapUM.Designer.cs">
+      <DependentUpon>FrmRpt_RekapUM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearch_Karyawan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearch_Karyawan.designer.cs">
+      <DependentUpon>FrmSearch_Karyawan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmData_Karyawan.resx">
+      <DependentUpon>FrmData_Karyawan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmData_SettingAbsenSpesial.resx">
+      <DependentUpon>FrmData_SettingAbsenSpesial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmData_SettingJamKerja.resx">
+      <DependentUpon>FrmData_SettingJamKerja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmData_SettingOffKerja.resx">
+      <DependentUpon>FrmData_SettingOffKerja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmData_SwitchOff.resx">
+      <DependentUpon>FrmData_SwitchOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDownloadData.resx">
+      <DependentUpon>FrmDownloadData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRpt_Absensi.resx">
+      <DependentUpon>FrmRpt_Absensi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRpt_Gaji.resx">
+      <DependentUpon>FrmRpt_Gaji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRpt_RekapAbsensi.resx">
+      <DependentUpon>FrmRpt_RekapAbsensi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRpt_RekapUM.resx">
+      <DependentUpon>FrmRpt_RekapUM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearch_Karyawan.resx">
+      <DependentUpon>FrmSearch_Karyawan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\Copy of rptPrintGaji.rdlc" />
+    <EmbeddedResource Include="Reports\rptPrintGaji.rdlc" />
+    <EmbeddedResource Include="Reports\rptJamAbsensi2.rdlc" />
+    <EmbeddedResource Include="Reports\rptJamAbsensi.rdlc" />
+    <None Include="app.config" />
+    <None Include="Datasets\dsRptJamAbsensi.xsc">
+      <DependentUpon>dsRptJamAbsensi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsRptJamAbsensi.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRptJamAbsensi.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dsRptJamAbsensi.xss">
+      <DependentUpon>dsRptJamAbsensi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsRptJamAbsensi2.xsc">
+      <DependentUpon>dsRptJamAbsensi2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsRptJamAbsensi2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRptJamAbsensi2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dsRptJamAbsensi2.xss">
+      <DependentUpon>dsRptJamAbsensi2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsPrintGaji.xsc">
+      <DependentUpon>dsPrintGaji.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsPrintGaji.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrintGaji.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dsPrintGaji.xss">
+      <DependentUpon>dsPrintGaji.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\AppIcon.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
