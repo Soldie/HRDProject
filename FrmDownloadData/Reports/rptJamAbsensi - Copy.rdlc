@@ -11,7 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsRptHistoryAbsensi">
+    <DataSet Name="dsRptJamAbsensi">
       <Query>
         <DataSourceName>dsRptJamAbsensi</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -25,30 +25,50 @@
           <DataField>nama</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="idjam">
-          <DataField>idjam</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
         <Field Name="clock_date">
           <DataField>clock_date</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="clock_time">
-          <DataField>clock_time</DataField>
+        <Field Name="time_in">
+          <DataField>time_in</DataField>
           <rd:TypeName>System.TimeSpan</rd:TypeName>
         </Field>
-        <Field Name="devid">
-          <DataField>devid</DataField>
+        <Field Name="time_out">
+          <DataField>time_out</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="jammasuk">
+          <DataField>jammasuk</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="jamkeluar">
+          <DataField>jamkeluar</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="toleransimasuk">
+          <DataField>toleransimasuk</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="jamkerja">
+          <DataField>jamkerja</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="devid_masuk">
+          <DataField>devid_masuk</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="devid_keluar">
+          <DataField>devid_keluar</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsRptHistoryAbsensi</rd:DataSetName>
-        <rd:SchemaPath>F:\MyProjects\HRDProject\FrmDownloadData\FrmDownloadData\Datasets\dsRptHistoryAbsensi.xsd</rd:SchemaPath>
-        <rd:TableName>rpt_historyabsensi</rd:TableName>
+        <rd:DataSetName>dsRptJamAbsensi</rd:DataSetName>
+        <rd:SchemaPath>D:\HRDProject\FrmDownloadData\FrmDownloadData\Datasets\dsRptJamAbsensi.xsd</rd:SchemaPath>
+        <rd:TableName>rpt_ambiljamabsensi</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>rpt_historyabsensiTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>rpt_ambiljamabsensiTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -70,6 +90,15 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.55208in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.51042in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -178,7 +207,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Jam Absen</Value>
+                                  <Value>Jam Masuk</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -188,6 +217,99 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox20</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Dev ID</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox22">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Jam Keluar</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox22</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Dev ID</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -307,14 +429,107 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(Fields!clock_time.Value.ToString() = "00:00:00", "N/A", Fields!clock_time.Value)</Value>
-                                  <Style />
+                                  <Value>=iif(Fields!time_in.Value.ToString() = "00:00:00", "N/A", format(hour(Fields!time_in.Value.ToString()), "00") + ":" + format(minute(Fields!time_in.Value.ToString()), "00")) 'Fields!time_in.Value)</Value>
+                                  <Style>
+                                    <Color>=iif(Fields!time_in.Value.ToString() = "00:00:00", "Red", (iif(TimeValue(Fields!toleransimasuk.Value.ToString()).Subtract( TimeValue(Fields!time_in.Value.ToString())).TotalMinutes &lt;= -1, "Red", "Black")))</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>time_in</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="devid_masuk">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!devid_masuk.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>devid_masuk</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="time_out">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=iif(Fields!time_out.Value is nothing, "N/A", format(hour(Fields!time_out.Value.ToString()), "00") + ":" + format(minute(Fields!time_out.Value.ToString()), "00")) 'Fields!time_out.Value)</Value>
+                                  <Style>
+                                    <Color>=iif(Fields!time_in.Value is nothing, "Red", iif(Fields!time_out.Value &lt; ( Fields!jamkeluar.Value ), "Red", "Black"))</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>time_out</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="devid_keluar">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!devid_keluar.Value</Value>
+                                  <Style>
+                                    <Color>=iif(Fields!devid_masuk.Value =Fields!devid_keluar.Value, "Black", "Red")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>devid_keluar</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -337,6 +552,9 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -351,11 +569,11 @@
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
-            <DataSetName>dsRptHistoryAbsensi</DataSetName>
+            <DataSetName>dsRptJamAbsensi</DataSetName>
             <Top>0.47917in</Top>
             <Left>0.51042in</Left>
             <Height>0.42708in</Height>
-            <Width>4.4375in</Width>
+            <Width>6.5in</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -382,7 +600,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Height>0.20833in</Height>
-            <Width>5.4375in</Width>
+            <Width>7.4575in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -415,7 +633,7 @@
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>0.2125in</Top>
             <Height>0.20833in</Height>
-            <Width>5.4375in</Width>
+            <Width>7.4575in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -435,7 +653,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>5.4375in</Width>
+      <Width>7.4575in</Width>
       <Page>
         <PageHeight>11.69in</PageHeight>
         <PageWidth>8.27in</PageWidth>
