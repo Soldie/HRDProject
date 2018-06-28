@@ -12,6 +12,7 @@ using System.Data.OleDb;
 using System.Data.Odbc;
 using System.IO;
 using System.Collections;
+using System.Threading.Tasks;
 
 namespace HRDProject
 {
@@ -433,6 +434,8 @@ namespace HRDProject
             ResetDatagridviewColumns("NIK", "Clock Date & Time", "Device ID");
 
             axCZKEM1.EnableDevice(iMachineNumber, false);//disable the device
+
+
             if (axCZKEM1.ReadGeneralLogData(iMachineNumber))//read all the attendance records to the memory
             {
                 while (axCZKEM1.SSR_GetGeneralLogData(iMachineNumber, out sdwEnrollNumber, out idwVerifyMode,
@@ -918,6 +921,12 @@ namespace HRDProject
                 MessageBox.Show("Unable to connect the device,ErrorCode=" + idwErrorCode.ToString(), "Error");
             }
             Cursor = Cursors.Default;
+        }
+
+        private void btnRptHistoryAbsensi_Click(object sender, EventArgs e)
+        {
+            FrmRpt_HistoryAbsensi rptAbsensi = new FrmRpt_HistoryAbsensi();
+            rptAbsensi.Show();
         }
 
         private void GetTemporaryAbsensi()

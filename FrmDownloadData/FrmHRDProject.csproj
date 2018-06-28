@@ -117,6 +117,11 @@
     <Compile Include="Classes\clsInfoApp.cs" />
     <Compile Include="Classes\clsPrivileges.cs" />
     <Compile Include="Classes\clsVarProgram.cs" />
+    <Compile Include="Datasets\dsRptHistoryAbsensi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRptHistoryAbsensi.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +188,12 @@
     <Compile Include="FrmDownloadData.Designer.cs">
       <DependentUpon>FrmDownloadData.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRpt_HistoryAbsensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRpt_HistoryAbsensi.Designer.cs">
+      <DependentUpon>FrmRpt_HistoryAbsensi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRpt_Absensi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +250,9 @@
     <EmbeddedResource Include="FrmDownloadData.resx">
       <DependentUpon>FrmDownloadData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRpt_HistoryAbsensi.resx">
+      <DependentUpon>FrmRpt_HistoryAbsensi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRpt_Absensi.resx">
       <DependentUpon>FrmRpt_Absensi.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,10 +279,22 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\Copy of rptPrintGaji.rdlc" />
+    <EmbeddedResource Include="Reports\rptHistoryAbsensi.rdlc" />
     <EmbeddedResource Include="Reports\rptPrintGaji.rdlc" />
     <EmbeddedResource Include="Reports\rptJamAbsensi2.rdlc" />
     <EmbeddedResource Include="Reports\rptJamAbsensi.rdlc" />
     <None Include="app.config" />
+    <None Include="Datasets\dsRptHistoryAbsensi.xsc">
+      <DependentUpon>dsRptHistoryAbsensi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsRptHistoryAbsensi.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRptHistoryAbsensi.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\dsRptHistoryAbsensi.xss">
+      <DependentUpon>dsRptHistoryAbsensi.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\dsRptJamAbsensi.xsc">
       <DependentUpon>dsRptJamAbsensi.xsd</DependentUpon>
     </None>

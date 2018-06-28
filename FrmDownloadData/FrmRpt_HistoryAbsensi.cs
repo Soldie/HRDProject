@@ -14,7 +14,7 @@ using System.Drawing.Printing;
 
 namespace HRDProject
 {
-    public partial class FrmRpt_Absensi : Form
+    public partial class FrmRpt_HistoryAbsensi : Form
     {
         private const string dbname = "HRD", Title = "Absensi", KdCabang = "AUR01",
             DISP_WAREHOUSE = "DisplayWarehouse",
@@ -27,16 +27,83 @@ namespace HRDProject
             ";Integrated Security=True;Connect Timeout=30; User Instance=False;"; //User ID=" + Uid + ";Password=" + Pwd;
 
         LocalReport localReport;
-        private ReportDataSource rsDataSource = new ReportDataSource(), rsDataSource2 = new ReportDataSource();
+        private ReportDataSource rsDataSource = new ReportDataSource();
         private string[]
             namaParams = new string[] { "PeriodeAwal", "PeriodeAkhir", "Cabang" };
         private string[] valParams;
 
-        private const string REPORT_NAME = "rptJamAbsensi.rdlc", REPORT_NAME2 = "rptJamAbsensi2.rdlc";
+        private const string REPORT_NAME = "rptHistoryAbsensi.rdlc";
+        private readonly string STARTUP_PATH;
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadDataKaryawan();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            FrmSearch_Karyawan frmSearch = new FrmSearch_Karyawan();
+
+            frmSearch.ShowDialog();
+
+            if (frmSearch.DialogResult == DialogResult.OK)
+            {
+                txtNIK.Text = frmSearch.NIK;
+                txtNama.Text = frmSearch.Nama;
+                txtNIK_KeyPress(this, new KeyPressEventArgs(KeysENTER));
+            }
+            txtNIK.Focus();
+
+            frmSearch = null;
+        }
+
+        private void txtNIK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == KeysENTER)
+            {
+                e.Handled = true;
+                LoadDataKaryawan();
+            }
+        }
+
+        private static char KeysENTER
+        {
+            get
+            {
+                return (char)13;
+            }
+        }
+
+        private void txtNIK_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.F3))
+            {
+                btnSearch.PerformClick();
+            }
+        }
+
+        public FrmRpt_HistoryAbsensi()
+        {
+            InitializeComponent();
+
+            STARTUP_PATH = Application.StartupPath + @"\Reports\";
+
+            #region Report Local
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+
+            rsDataSource.Name = "dsRptHistoryAbsensi";
+            
+            #endregion
+
+            LoadDataCombo();
+
+            int dayofweek = (int)dtpPeriodeAwal.Value.DayOfWeek + 1;
+
+            GlobalFunction gFunc = new GlobalFunction();
+            gFunc.SetTextboxEnable(false, txtNama);
+
+            dtpPeriodeAwal.Value = dtpPeriodeAwal.Value.AddDays(-dayofweek);
+            dtpPeriodeAkhir.Value = dtpPeriodeAkhir.Value.AddDays(-1);
         }
 
         private void LoadDataKaryawan()
@@ -87,76 +154,6 @@ namespace HRDProject
                     exc.Message, Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNIK.Focus();
             }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            FrmSearch_Karyawan frmSearch = new FrmSearch_Karyawan();
-
-            frmSearch.ShowDialog();
-
-            if (frmSearch.DialogResult == DialogResult.OK)
-            {
-                txtNIK.Text = frmSearch.NIK;
-                txtNama.Text = frmSearch.Nama;
-                txtNIK_KeyPress(this, new KeyPressEventArgs(KeysENTER));
-            }
-            txtNIK.Focus();
-
-            frmSearch = null;
-        }
-
-        private void txtNIK_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == KeysENTER)
-            {
-                e.Handled = true;
-                LoadDataKaryawan();
-            }
-        }
-
-        private static char KeysENTER
-        {
-            get
-            {
-                return (char)13;
-            }
-        }
-
-
-        private void txtNIK_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode.Equals(Keys.F3))
-            {
-                btnSearch.PerformClick();
-            }
-        }
-
-        private readonly string STARTUP_PATH;
-
-        public FrmRpt_Absensi()
-        {
-            InitializeComponent();
-
-            STARTUP_PATH = Application.StartupPath + @"\Reports\";
-
-            #region Report Local
-            reportViewer1.ProcessingMode = ProcessingMode.Local;
-
-            rsDataSource.Name = "dsRptJamAbsensi";
-            rsDataSource2.Name = "dsRptJamAbsensi2";
-            
-            #endregion
-
-            LoadDataCombo();
-
-            int dayofweek = (int)dtpPeriodeAwal.Value.DayOfWeek + 1;
-
-            GlobalFunction gFunc = new GlobalFunction();
-            gFunc.SetTextboxEnable(false, txtNama);
-
-            dtpPeriodeAwal.Value = dtpPeriodeAwal.Value.AddDays(-dayofweek);
-            dtpPeriodeAkhir.Value = dtpPeriodeAkhir.Value.AddDays(-1);
         }
 
         public bool LoadDataCombo()
@@ -269,10 +266,7 @@ namespace HRDProject
 
             reportViewer1.Reset();
 
-            if (chkWithJamMakan.Checked)
-                PrintAbsensi2(periodeAwal, periodeAkhir);
-            else
-                PrintAbsensi(periodeAwal, periodeAkhir);
+            PrintAbsensi(periodeAwal, periodeAkhir);
 
             PaperSize size = new PaperSize();
             size.RawKind = (int)PaperKind.A4;
@@ -312,39 +306,15 @@ namespace HRDProject
             System.IO.Directory.SetCurrentDirectory(STARTUP_PATH);
             localReport.SetParameters(rptParams);
 
-            dsRptJamAbsensi.Clear();
-            LoadSQLData(ref dsRptJamAbsensi, periodeAwal, periodeAkhir);
+            dsRptHistoryAbsensi.Clear();
+            LoadSQLData(ref dsRptHistoryAbsensi, periodeAwal, periodeAkhir);
 
             localReport.DataSources.Add(rsDataSource);
 
-            localReport.DataSources[0].Value = dsRptJamAbsensi.Tables["table01"];
+            localReport.DataSources[0].Value = dsRptHistoryAbsensi.Tables["table01"];
         }
 
-        private void PrintAbsensi2(DateTime periodeAwal, DateTime periodeAkhir)
-        {
-            localReport = reportViewer1.LocalReport;
-            localReport.ReportPath = STARTUP_PATH + REPORT_NAME2;
-            localReport.DataSources.Add(rsDataSource2);
-
-            List<ReportParameter> rptParams = new List<ReportParameter>();
-
-            valParams = new string[] { periodeAwal.ToString(), periodeAkhir.ToString() };
-            int pjgParams = valParams.GetUpperBound(0);
-            for (int i = 0; i <= pjgParams; i++)
-                rptParams.Add(new ReportParameter(namaParams[i], valParams[i]));
-
-            System.IO.Directory.SetCurrentDirectory(STARTUP_PATH);
-            localReport.SetParameters(rptParams);
-
-            dsRptJamAbsensi2.Clear();
-            LoadSQLData2(ref dsRptJamAbsensi2, periodeAwal, periodeAkhir);
-
-            localReport.DataSources.Add(rsDataSource2);
-
-            localReport.DataSources[0].Value = dsRptJamAbsensi2.Tables["table01"];
-        }
-
-        private void LoadSQLData(ref dsRptJamAbsensi dataSet, DateTime periodeAwal, DateTime periodeAkhir)
+        private void LoadSQLData(ref dsRptHistoryAbsensi dataSet, DateTime periodeAwal, DateTime periodeAkhir)
         {
             try
             {
@@ -353,7 +323,7 @@ namespace HRDProject
                     SqlCommand sqlCmd = new SqlCommand();
                     sqlCmd.Connection = sqlCnn;
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.CommandText = "rpt_ambiljamabsensibyjadwal";
+                    sqlCmd.CommandText = "rpt_historyabsensi";
                     if (!string.IsNullOrWhiteSpace(txtNIK.Text))
                     {
                         int.TryParse(txtNIK.Text, out int nik);
@@ -367,45 +337,6 @@ namespace HRDProject
                     sqlCmd.Parameters.Add("@divisi", SqlDbType.SmallInt).Value = cboDivisi.SelectedValue.ToString();
                     sqlCmd.Parameters.Add("@viewNickName", SqlDbType.Bit).Value = chkViewNickName.Checked;
 
-                    sqlCnn.Open();
-
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCmd);
-
-                    dataAdapter.Fill(dataSet, "table01");
-
-                    sqlCmd = null;
-                    sqlCnn.Close();
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Cannot Load Data!" + Environment.NewLine + Environment.NewLine +
-                    exc.Message, Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void LoadSQLData2(ref dsRptJamAbsensi2 dataSet, DateTime periodeAwal, DateTime periodeAkhir)
-        {
-            try
-            {
-                using (SqlConnection sqlCnn = new SqlConnection(ZFame.Classes.clsVarProgram.DB_CONN_STRING))
-                {
-                    SqlCommand sqlCmd = new SqlCommand();
-                    sqlCmd.Connection = sqlCnn;
-                    sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.CommandText = "rpt_ambiljamabsensi2";
-                    if (!string.IsNullOrWhiteSpace(txtNIK.Text))
-                    {
-                        int.TryParse(txtNIK.Text, out int nik);
-                        sqlCmd.Parameters.Add("@NIK", SqlDbType.Int).Value = nik;
-                    }
-                    sqlCmd.Parameters.Add("@PeriodeAwal", SqlDbType.DateTime).Value = dtpPeriodeAwal.Value.ToString();
-                    sqlCmd.Parameters.Add("@PeriodeAkhir", SqlDbType.DateTime).Value = dtpPeriodeAkhir.Value.ToString();
-                    sqlCmd.Parameters.Add("@kdcabang", SqlDbType.VarChar, 5).Value = KdCabang;
-                    if (cboWarehouse.SelectedIndex > 0)
-                        sqlCmd.Parameters.Add("@kdwarehouse", SqlDbType.VarChar, 3).Value = cboWarehouse.SelectedValue.ToString();
-                    sqlCmd.Parameters.Add("@divisi", SqlDbType.SmallInt).Value = cboDivisi.SelectedValue.ToString();
-                    sqlCmd.Parameters.Add("@viewNickName", SqlDbType.Bit).Value = chkViewNickName.Checked;
                     sqlCnn.Open();
 
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCmd);
