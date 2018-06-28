@@ -361,7 +361,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(Fields!time_in.Value.ToString() = "00:00:00", "N/A", format(hour(Fields!time_in.Value.ToString()), "00") + ":" + format(minute(Fields!time_in.Value.ToString()), "00")) 'Fields!time_in.Value)</Value>
+                                  <Value>=Code.strConvertToTimeValue(Fields!time_in.Value) 'iif(Fields!time_in.Value.ToString() = "00:00:00", "N/A", format(hour(Fields!time_in.Value.ToString()), "00") + ":" + format(minute(Fields!time_in.Value.ToString()), "00")) 'Fields!time_in.Value)</Value>
                                   <Style>
                                     <Color>=iif(Fields!time_in.Value.ToString() = "00:00:00", "Red", (iif(TimeValue(Fields!toleransimasuk.Value.ToString()).Subtract( TimeValue(Fields!time_in.Value.ToString())).TotalMinutes &lt;= -1, "Red", "Black")))</Color>
                                   </Style>
@@ -392,7 +392,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=iif(Fields!time_out.Value is nothing, "N/A", format(hour(Fields!time_out.Value.ToString()), "00") + ":" + format(minute(Fields!time_out.Value.ToString()), "00")) 'Fields!time_out.Value)</Value>
+                                  <Value>=Code.strConvertToTimeValue(Fields!time_out.Value) 'format(hour(Fields!time_out.Value.ToString()), "00"))' + ":" + format(minute(Fields!time_out.Value.ToString()), "00")) 'Fields!time_out.Value)</Value>
                                   <Style>
                                     <Color>=iif(Fields!time_in.Value is nothing, "Red", iif(Fields!time_out.Value &lt; ( Fields!jamkeluar.Value ), "Red", "Black"))</Color>
                                   </Style>
@@ -568,6 +568,20 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Code>Public Function strConvertToTimeValue(objValue As Object) As String
+
+    If objValue is nothing Then
+        strConvertToTimeValue= "N/A"
+    Else
+        strConvertToTimeValue= Format(Hour(objValue.tostring()), "00") + ":" + Format(minute(objValue.tostring()), "00")
+
+    End If
+
+End Function
+
+'objValue.tostring() 
+'Format(Hour(objValue.tostring()), "00") + ":" + Format(minute(objValue.tostring()), "00")
+</Code>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>ea4dbcd4-6235-4835-a314-d92209c26963</rd:ReportID>
 </Report>
