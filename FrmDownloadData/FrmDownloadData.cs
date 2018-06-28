@@ -40,7 +40,6 @@ namespace HRDProject
             idx_nama = 1,
             idx_devid = 2,
             idx_validator = 3;
-        private const int BATAS_DOUBLE_ABSENSI = 3;
         private bool isNoRecord = false;
         private string filename;
 
@@ -825,6 +824,8 @@ namespace HRDProject
             TimeSpan span;
             double totalMinutes;
 
+            int.TryParse(txtBatasDoubleAbsensi.Text, out int batasDoubleAbsensi);
+
             for (int i = 0; i < jmlRows - 1; i++)
             {
                 tmpnik = int.Parse( dgvGrid.Rows[i].Cells[idx_nik].Value.ToString() );
@@ -848,10 +849,13 @@ namespace HRDProject
                     span = tmptgl - tgl;
                     totalMinutes = span.TotalMinutes;
 
-                    if (totalMinutes <= BATAS_DOUBLE_ABSENSI)
+                    if (batasDoubleAbsensi > 0)
                     {
-                        dgvGrid.Rows[j].Cells[idx_validator].Value = "1";
-                        //break;
+                        if (totalMinutes <= batasDoubleAbsensi)
+                        {
+                            dgvGrid.Rows[j].Cells[idx_validator].Value = "1";
+                            //break;
+                        }
                     }
                 }
             }

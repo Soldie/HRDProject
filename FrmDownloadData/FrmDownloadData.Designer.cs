@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDownloadData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.axBioBridgeSDK1 = new AxBioBridgeSDKLib.AxBioBridgeSDK();
             this._MyKode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,10 +82,13 @@
             this.lblWarehouse = new System.Windows.Forms.Label();
             this.btnLoadUser = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnRptHistoryAbsensi = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnPrintUM = new System.Windows.Forms.Button();
             this.btnRptRekapAbsensi = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtBatasDoubleAbsensi = new System.Windows.Forms.TextBox();
+            this.lblBatasAbsensi = new System.Windows.Forms.Label();
             this.btnLoadAbsensi = new System.Windows.Forms.Button();
             this.btnImportCSV = new System.Windows.Forms.Button();
             this.chkSolutions = new System.Windows.Forms.CheckBox();
@@ -94,7 +97,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnRptHistoryAbsensi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axBioBridgeSDK1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -121,8 +123,8 @@
             // 
             // _MyKode
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Bisque;
-            this._MyKode.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
+            this._MyKode.DefaultCellStyle = dataGridViewCellStyle1;
             this._MyKode.Frozen = true;
             this._MyKode.HeaderText = "Code";
             this._MyKode.Name = "_MyKode";
@@ -140,10 +142,10 @@
             // 
             // _Button
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle11.NullValue = "F3";
-            this._Button.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle2.NullValue = "F3";
+            this._Button.DefaultCellStyle = dataGridViewCellStyle2;
             this._Button.Frozen = true;
             this._Button.HeaderText = "";
             this._Button.MinimumWidth = 35;
@@ -156,8 +158,8 @@
             // 
             // _ProductName
             // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Bisque;
-            this._ProductName.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Bisque;
+            this._ProductName.DefaultCellStyle = dataGridViewCellStyle3;
             this._ProductName.HeaderText = "Name";
             this._ProductName.MaxInputLength = 255;
             this._ProductName.MinimumWidth = 300;
@@ -168,8 +170,8 @@
             // 
             // _Stok
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Bisque;
-            this._Stok.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
+            this._Stok.DefaultCellStyle = dataGridViewCellStyle4;
             this._Stok.HeaderText = "Stok";
             this._Stok.Name = "_Stok";
             this._Stok.ReadOnly = true;
@@ -184,8 +186,8 @@
             // 
             // _HargaJual
             // 
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Bisque;
-            this._HargaJual.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Bisque;
+            this._HargaJual.DefaultCellStyle = dataGridViewCellStyle5;
             this._HargaJual.HeaderText = "Harga";
             this._HargaJual.Name = "_HargaJual";
             this._HargaJual.ReadOnly = true;
@@ -207,8 +209,8 @@
             // 
             // _KdSat
             // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Bisque;
-            this._KdSat.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Bisque;
+            this._KdSat.DefaultCellStyle = dataGridViewCellStyle6;
             this._KdSat.HeaderText = "Satuan";
             this._KdSat.Name = "_KdSat";
             this._KdSat.ReadOnly = true;
@@ -217,8 +219,8 @@
             // 
             // _TotalHarga
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Bisque;
-            this._TotalHarga.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Bisque;
+            this._TotalHarga.DefaultCellStyle = dataGridViewCellStyle7;
             this._TotalHarga.HeaderText = "Total Harga";
             this._TotalHarga.Name = "_TotalHarga";
             this._TotalHarga.ReadOnly = true;
@@ -233,15 +235,15 @@
             // 
             // _KdDisc
             // 
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Bisque;
-            this._KdDisc.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Bisque;
+            this._KdDisc.DefaultCellStyle = dataGridViewCellStyle8;
             this._KdDisc.HeaderText = "Tipe Disc";
             this._KdDisc.Name = "_KdDisc";
             // 
             // _TotalDisc
             // 
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Bisque;
-            this._TotalDisc.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Bisque;
+            this._TotalDisc.DefaultCellStyle = dataGridViewCellStyle9;
             this._TotalDisc.HeaderText = "Total Disc";
             this._TotalDisc.Name = "_TotalDisc";
             this._TotalDisc.ReadOnly = true;
@@ -353,7 +355,7 @@
             this.tabIPAddress.Location = new System.Drawing.Point(4, 22);
             this.tabIPAddress.Name = "tabIPAddress";
             this.tabIPAddress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabIPAddress.Size = new System.Drawing.Size(907, 122);
+            this.tabIPAddress.Size = new System.Drawing.Size(976, 122);
             this.tabIPAddress.TabIndex = 1;
             this.tabIPAddress.Text = "IP Address";
             this.tabIPAddress.UseVisualStyleBackColor = true;
@@ -534,6 +536,16 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnRptHistoryAbsensi
+            // 
+            this.btnRptHistoryAbsensi.Location = new System.Drawing.Point(624, 39);
+            this.btnRptHistoryAbsensi.Name = "btnRptHistoryAbsensi";
+            this.btnRptHistoryAbsensi.Size = new System.Drawing.Size(120, 23);
+            this.btnRptHistoryAbsensi.TabIndex = 30;
+            this.btnRptHistoryAbsensi.Text = "Print History Absensi";
+            this.btnRptHistoryAbsensi.UseVisualStyleBackColor = true;
+            this.btnRptHistoryAbsensi.Click += new System.EventHandler(this.btnRptHistoryAbsensi_Click);
+            // 
             // btnReport
             // 
             this.btnReport.Location = new System.Drawing.Point(624, 10);
@@ -566,6 +578,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtBatasDoubleAbsensi);
+            this.groupBox2.Controls.Add(this.lblBatasAbsensi);
             this.groupBox2.Controls.Add(this.btnLoadAbsensi);
             this.groupBox2.Controls.Add(this.btnImportCSV);
             this.groupBox2.Controls.Add(this.chkSolutions);
@@ -577,6 +591,23 @@
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Record Absensi";
+            // 
+            // txtBatasDoubleAbsensi
+            // 
+            this.txtBatasDoubleAbsensi.Location = new System.Drawing.Point(219, 114);
+            this.txtBatasDoubleAbsensi.Name = "txtBatasDoubleAbsensi";
+            this.txtBatasDoubleAbsensi.Size = new System.Drawing.Size(43, 20);
+            this.txtBatasDoubleAbsensi.TabIndex = 37;
+            this.txtBatasDoubleAbsensi.Text = "0";
+            // 
+            // lblBatasAbsensi
+            // 
+            this.lblBatasAbsensi.AutoSize = true;
+            this.lblBatasAbsensi.Location = new System.Drawing.Point(25, 117);
+            this.lblBatasAbsensi.Name = "lblBatasAbsensi";
+            this.lblBatasAbsensi.Size = new System.Drawing.Size(188, 13);
+            this.lblBatasAbsensi.TabIndex = 36;
+            this.lblBatasAbsensi.Text = "Batas Absensi diabaikan (dalam menit)";
             // 
             // btnLoadAbsensi
             // 
@@ -655,16 +686,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnRptHistoryAbsensi
-            // 
-            this.btnRptHistoryAbsensi.Location = new System.Drawing.Point(624, 39);
-            this.btnRptHistoryAbsensi.Name = "btnRptHistoryAbsensi";
-            this.btnRptHistoryAbsensi.Size = new System.Drawing.Size(120, 23);
-            this.btnRptHistoryAbsensi.TabIndex = 30;
-            this.btnRptHistoryAbsensi.Text = "Print History Absensi";
-            this.btnRptHistoryAbsensi.UseVisualStyleBackColor = true;
-            this.btnRptHistoryAbsensi.Click += new System.EventHandler(this.btnRptHistoryAbsensi_Click);
             // 
             // FrmDownloadData
             // 
@@ -757,6 +778,8 @@
         private System.Windows.Forms.TextBox txtDevId;
         private System.Windows.Forms.Label lblDevId;
         private System.Windows.Forms.Button btnRptHistoryAbsensi;
+        private System.Windows.Forms.Label lblBatasAbsensi;
+        private System.Windows.Forms.TextBox txtBatasDoubleAbsensi;
     }
 }
 
