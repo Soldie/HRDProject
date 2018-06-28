@@ -226,7 +226,7 @@ namespace HRDProject
                         cboDivisi.DataSource = arrDivisi;
                         cboDivisi.DisplayMember = DISP_DIVISI;
                         cboDivisi.ValueMember = VAL_DIVISI;
-                        cboDivisi.SelectedValue = "2";
+                        cboDivisi.SelectedValue = "1";
                     }
                     else
                     {
