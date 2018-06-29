@@ -363,7 +363,7 @@
                                 <TextRun>
                                   <Value>=Code.strConvertToTimeValue(Fields!time_in.Value) 'iif(Fields!time_in.Value.ToString() = "00:00:00", "N/A", format(hour(Fields!time_in.Value.ToString()), "00") + ":" + format(minute(Fields!time_in.Value.ToString()), "00")) 'Fields!time_in.Value)</Value>
                                   <Style>
-                                    <Color>=iif(Fields!time_in.Value.ToString() = "00:00:00", "Red", (iif(TimeValue(Fields!toleransimasuk.Value.ToString()).Subtract( TimeValue(Fields!time_in.Value.ToString())).TotalMinutes &lt;= -1, "Red", "Black")))</Color>
+                                    <Color>=iif(Code.strConvertToTimeValue(Fields!time_in.Value) = "N/A", "Red", (iif(Code.GetSelisihWaktu(Fields!toleransimasuk.Value, Fields!time_in.Value) &lt;= -1, "Red", "Black")))</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -394,7 +394,7 @@
                                 <TextRun>
                                   <Value>=Code.strConvertToTimeValue(Fields!time_out.Value) 'format(hour(Fields!time_out.Value.ToString()), "00"))' + ":" + format(minute(Fields!time_out.Value.ToString()), "00")) 'Fields!time_out.Value)</Value>
                                   <Style>
-                                    <Color>=iif(Fields!time_in.Value is nothing, "Red", iif(Fields!time_out.Value &lt; ( Fields!jamkeluar.Value ), "Red", "Black"))</Color>
+                                    <Color>=iif(Fields!time_out.Value &lt; ( Fields!jamkeluar.Value ), "Red", "Black") 'iif(Fields!time_in.Value is nothing, "Red", iif(Fields!time_out.Value &lt; ( Fields!jamkeluar.Value ), "Red", "Black"))</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -579,8 +579,18 @@
 
 End Function
 
-'objValue.tostring() 
-'Format(Hour(objValue.tostring()), "00") + ":" + Format(minute(objValue.tostring()), "00")
+Public Function GetSelisihWaktu(objValue As Object, timeIn as Object) As double
+
+    If timeIn is nothing Then
+        GetSelisihWaktu= -1
+    Else
+        GetSelisihWaktu= TimeValue(objValue.ToString()).Subtract( TimeValue(timeIn.ToString())).TotalMinutes
+
+    End If
+
+End Function
+
+
 </Code>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>ea4dbcd4-6235-4835-a314-d92209c26963</rd:ReportID>
